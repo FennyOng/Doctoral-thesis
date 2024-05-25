@@ -274,6 +274,9 @@ fit.ica.bincont <- ICA.BinCont.BS(Dataset = schizo_no_miss,
                                   Plots=FALSE)                          
 save(fit.ica.bincont, file = "ICA schizo")
 summary(fit.ica.bincont)
+plot(fit.ica.bincont)
+
+# Alternative for creating a plot
 
 pdf('Histogram ICA schizo.pdf')
 hist(fit.ica.bincont$R2_H,
@@ -288,6 +291,10 @@ dev.off()
 
 spf.schizo <- SPF.BinCont(fit.ica.bincont, a=-15, b=15)
 save(spf.schizo, file = "SPF schizo (-15,15)")
+summary(spf.schizo)
+plot(spf.schizo)
+
+# Alternative for obtaining the descriptive summary and creating plots
 
 summary_func <- function(x){
   mean <- round(mean(x), 4)
